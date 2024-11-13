@@ -1,0 +1,18 @@
+{
+  "acceleration": "7.5",
+  "brand": "Toyota",
+  "class": "Sedan",
+  "dimensions": {
+    "height": "1400",
+    "length": "4500",
+    "width": "1800"
+  },
+  "engine": {
+    "power": "150",
+    "type": "Petrol",
+    "volume": "2"
+  },
+  "max_speed": "220",
+  "model": "Corolla",
+  "year": "2021"
+}

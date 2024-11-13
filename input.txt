@@ -1,0 +1,1 @@
+Brand: Toyota, Model: Corolla, Year: 2021, Class: Sedan, Engine: (Volume: 2L, Power: 150kW, Type: Petrol), Dimensions: 4500x1800x1400mm, Max speed: 220km/h, Acceleration: 7.5s to 100 km/h

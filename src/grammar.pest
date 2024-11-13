@@ -1,0 +1,47 @@
+/// This rule defines a whitespace character, which can be a space, tab, or newline.
+WHITESPACE = _{ " " | "\t" | NEWLINE }
+
+/// This rule defines a sequence of ASCII alphanumeric characters (letters and digits) for names.
+name = @{ ASCII_ALPHANUMERIC+ }
+
+/// This rule defines a number, which can either be an integer or a floating-point number without the decimal part.
+number = @{ (ASCII_DIGIT+ ~ "." ~ ASCII_DIGIT+) | ASCII_DIGIT+ }
+
+/// This rule defines the structure of a vehicle, consisting of brand, model, year, class, engine details, dimensions, max speed, and acceleration.
+vehicle = ${ brand ~  ", " ~ model ~  ", " ~ year ~  ", " ~ class ~  ", " ~ engine ~  ", " ~ dimensions ~  ", " ~ max_speed ~  ", " ~ acceleration }
+
+/// This rule defines the brand of the vehicle, which is prefixed by "Brand:" followed by a whitespace and the name.
+brand = ${ "Brand:" ~ WHITESPACE ~ name }
+
+/// This rule defines the model of the vehicle, which is prefixed by "Model:" followed by a whitespace and the name.
+model = ${ "Model:" ~ WHITESPACE ~ name }
+
+/// This rule defines the year of the vehicle, which is prefixed by "Year:" followed by a whitespace and a number.
+year = ${ "Year:" ~ WHITESPACE ~ number }
+
+/// This rule defines the class of the vehicle, which is prefixed by "Class:" followed by a whitespace and the name.
+class = ${ "Class:" ~ WHITESPACE ~ name }
+
+/// This rule defines the engine details of the vehicle, which starts with "Engine: (" followed by volume, power, and type in the specified format.
+engine = ${ "Engine: (" ~ volume ~  ", " ~ power ~  ", " ~ engine_type ~ ")" }
+
+/// This rule defines the volume of the engine, which is prefixed by "Volume:" followed by a whitespace, a number, and the "L" unit.
+volume = ${ "Volume:" ~ WHITESPACE ~ number ~ "L" }
+
+/// This rule defines the power of the engine, which is prefixed by "Power:" followed by a whitespace, a number, and the "kW" unit.
+power = ${ "Power:" ~ WHITESPACE ~ number ~ "kW" }
+
+/// This rule defines the engine type, which is prefixed by "Type:" followed by a whitespace and one of the allowed engine types: Petrol, Diesel, or Electric.
+engine_type = ${ "Type:" ~ WHITESPACE ~ engine_type_inner }
+
+/// This rule defines the allowed engine types: Petrol, Diesel, or Electric.
+engine_type_inner = @{("Petrol" | "Diesel" | "Electric")}
+
+/// This rule defines the dimensions of the vehicle, which are prefixed by "Dimensions:" followed by a whitespace and three numbers representing length, width, and height in the format "length x width x height mm".
+dimensions = ${ "Dimensions:" ~ WHITESPACE ~ number ~ "x" ~ number ~ "x" ~ number ~ "mm" }
+
+/// This rule defines the maximum speed of the vehicle, which is prefixed by "Max speed:" followed by a whitespace, a number, and the "km/h" unit.
+max_speed = ${ "Max speed:" ~ WHITESPACE ~ number ~ "km/h" }
+
+/// This rule defines the acceleration of the vehicle, which is prefixed by "Acceleration:" followed by a whitespace, a number, and the text "s to 100 km/h".
+acceleration = ${ "Acceleration:" ~ WHITESPACE ~ number ~ "s to 100 km/h" }
