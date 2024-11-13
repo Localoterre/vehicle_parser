@@ -1,5 +1,16 @@
 # Car Characteristics Parser
 
+crates.io link!!!!!!!!!
+
+https://crates.io/crates/vehicle_parser
+
+Doc ---
+
+https://docs.rs/vehicle_parser
+
+
+
+
 ## Overview
 This parser is designed to extract and interpret technical characteristics of cars from structured text input using the Rust pest library. It parses key attributes related to a car's make, model, manufacturing year, class, engine specifications, dimensions, maximum speed, and acceleration. These characteristics are parsed into discrete elements, allowing the data to be programmatically accessed and analyzed for further processing.
 
